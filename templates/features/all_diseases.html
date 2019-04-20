@@ -1,0 +1,17 @@
+{% extends "home.html" %}
+
+
+{% block content %}
+{% for i in data %}
+    <div class="card" style="width: 18rem;">
+  <img src="{{ i.dis_image }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ i.dis_name }}</h5>
+    <p class="card-text">{{ i.dis_symptoms }}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}
