@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+   <!-- <link rel="stylesheet" href="{% static 'css/simple-navbar.css' %}"> -->
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<style>
+  
+      .sidenav{
+        background-image:url("{% static 'img/image1.jpeg'%}");
+      }
+      </style>
+{% endblock css %}
+{% block navbar %}
+{% endblock navbar%}
+{% block content %}
+<div class="sidenav">
+         <div class="login-main-text">
+           <h2 href="{% url 'home'%}"><strong>PLANTO</strong><br><span style='color:white;'> An App for the Farmers</span></h2>
+            <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:18px;">Login or register from here to access the notes portal.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form method='POST'>
+                   {% csrf_token %}
+                  <div class="form-group">
+                      {{ form.errors }}
+                     <label>User Name</label><br/>
+                    {{ form.query }}    
+                    </div>
+                  <div class="form-group">
+                     <label>Password</label><br/>
+                     {{ form.password }}    
+                    </div>
+                  <button type="submit" class="btn btn-success">Login</button>
+                  <a  href="{% url 'register' %}"><button type="button" class="btn btn-outline-success">Register</button></a>
+               </form>
+            </div>
+         </div>
+      </div>
+{% endblock %}

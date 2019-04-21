@@ -1,5 +1,14 @@
-{% extends "home.html" %}
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/simple-navbar.css' %}">
+<style>
 
+.navbar{
+  background-image:url("{% static 'img/image1.jpeg'%}");
+}
+</style>
+{% endblock css %}
 
 {% block content %}
 {% for i in data %}
