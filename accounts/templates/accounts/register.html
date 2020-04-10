@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+   <!-- <link rel="stylesheet" href="{% static 'css/simple-navbar.css' %}"> -->
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<style>
+  
+      .sidenav{
+        background-image:url("{% static 'img/image1.jpeg'%}");
+      }
+      </style>
+{% endblock css %}
+{% block navbar %}
+{% endblock navbar%}
+{% block content %}
+<div class="sidenav">
+      <div class="login-main-text">
+         <a href="{% url 'home'%}"><h2><strong>PLANTO</strong><br><span style='color:white;'> An App for the Farmers</span></h2></a>
+         <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:18px;">Login or register from here to access the notes portal.</p>
+      </div>
+   </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form method='POST'>
+                   {% csrf_token %}
+                   {{ form.errors }}
+                  <div class="form-group">
+                     <label>User Name</label><br/>
+                    {{ form.username }}    
+                    </div>
+                    <div class="form-group">
+                            <label>Email</label><br/>
+                           {{ form.email }}    
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label><br/>
+                        {{ form.password1 }}    
+                    </div>
+                  <div class="form-group">
+                     <label>Confirm Password</label><br/>
+                     {{ form.password2 }}    
+                    </div>
+                  <button type="submit" class="btn btn-success">Register</button>
+                  <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-success">Login</button></a>
+               </form>
+            </div>
+         </div>
+      </div>
+{% endblock %}

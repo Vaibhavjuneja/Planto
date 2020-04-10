@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<style>
+    .banner{
+        background-image:url("{% static 'img/image1.jpeg'%}");
+    }
+    </style>
+{% endblock css %}
+{% block content %}
+<div class="banner">
+    <div class="container">
+    <div class="banner-text">
+    <div class="banner-heading">
+    Welcome to Planto
+    </div>
+    <div class="banner-sub-heading">
+    An App for The Farmers
+    </div>
+    <button type="button" class="btn btn-warning text-dark btn-banner">Explore</button>
+    </div>
+    </div>
+</div>
+
+
+    <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="/home/vaibhav/Desktop/index.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div> -->
+
+{% endblock %}
+{% block js %}
+<script>
+  $(document).on("scroll", function(){
+      if
+        ($(document).scrollTop() > 86){
+        $("#banner").addClass("shrink");
+      }
+      else
+      {
+        $("#banner").removeClass("shrink");
+      }
+    });
+</script>
+{% endblock js %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/simple-navbar.css' %}">
+<style>
+
+.navbar{
+  background-image:url("{% static 'img/image1.jpeg'%}");
+}
+</style>
+{% endblock css %}
+{% block navbar %}{% include 'base/navbar2.html' %}
+{% endblock navbar%}
+{% block content %}
+<div class='container mt-4'>
+<div class="jumbotron">
+    <h1 class="display-4" style="font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive">Welcome to Planto Weather</h1>
+    <p class="lead">This a simple application to check the weather of your area by simply entering it below</p>
+    <hr class="my-4">
+    <p>Enter your city/location Name to continue</p>
+    <form method='POST' action="">
+        {% csrf_token %}
+      <div >
+        <input type="text" class="form-control" name="email" placeholder="Enter city">
+        <small id="emailHelp" class="form-text text-muted">Enter a Valid city Name.</small><br/>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+{% if request.POST %}
+<h2 style='font-weight:bold'> Weather Information</h2>
+<table class="table table-striped table-bordered table-hover">
+    <tbody>
+      <tr>
+        <th scope="row">City</th>
+        <td>{{ x.name }}</td>
+      </tr>
+      {% for y in x.weather %}
+      <tr>
+        <th scope="row">Weather</th>
+        <td>{{ y.description }}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <th scope="row">Temperature (in kelvin unit)</th>
+        <td>{{ x.main.temp }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Pressure (in hPa unit)</th>
+        <td>{{ x.main.pressure }}</td>
+      </tr>
+      <tr>
+          <th scope="row">Maximum Temperature (in kelvin unit)</th>
+          <td>{{ x.main.temp_max }}</td>
+      </tr>
+      <tr>
+          <th scope="row">Minimum Temperature (in kelvin unit)</th>
+          <td>{{ x.main.temp_min }}</td>
+        </tr>      <tr>
+            <th scope="row">Humidity</th>
+            <td>{{ x.main.humidity }}%</td>
+          </tr>
+
+    </tbody>
+  </table>
+{% endif %}
+
+{% endblock %}
