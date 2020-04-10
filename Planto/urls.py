@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from home.views import index,Planto
 from features.views import weather,all_diseases
+from users import views as user_views
 
 
 urlpatterns = [
@@ -25,5 +26,6 @@ urlpatterns = [
     path('weather/',weather,name="weather"),
     path('Planto/',Planto,name="Planto"),
     path('alldiseases/',all_diseases,name="all"),
+    path('register/',user_views.register,name="register"),
 
 ]
